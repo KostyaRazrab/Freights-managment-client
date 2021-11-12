@@ -6,8 +6,8 @@ export const fakeFreights: IFreight[] = [
     receiptDate: new Date(Date.now()),
     clientFirm: "ООО Ромашка",
     carrierFullname: "Овчинников Константин Геннадьевич",
-    carrierPhoneNumber: "89836459978",
-    comment: "Поставка придет когда-нибудь",
+    carrierPhoneNumber: "89837369978",
+    comment: "Комментарий",
     ATICode: '678'
   },
   {
@@ -16,7 +16,7 @@ export const fakeFreights: IFreight[] = [
     clientFirm: "ООО Ромашка",
     carrierFullname: "Овчинников Константин Геннадьевич",
     carrierPhoneNumber: "89836459978",
-    comment: "Поставка придет когда-нибудь",
+    comment: "Комментарий",
     ATICode: '678'
   },
   {
@@ -25,7 +25,7 @@ export const fakeFreights: IFreight[] = [
     clientFirm: "ООО Ромашка",
     carrierFullname: "Овчинников Константин Геннадьевич",
     carrierPhoneNumber: "89836459978",
-    comment: "Поставка придет когда-нибудь",
+    comment: "Комментарий",
     ATICode: '678'
   },
 ];
