@@ -7,11 +7,9 @@ import { freightStore } from "../../store/freight-store";
 import AddingFreightDialog from "../adding-freight-dialog";
 import InfoFreightDialog from "../../components/info-freight-dialog";
 import FreigthsTable from "../freigths-table";
-import Loader from "../../components/loader";
 import "./style.scss";
 
 function Home() {
-  console.log("rerend");
   const [openAddingDialog, setOpenAddingDialog] = useState<boolean>(false);
   const [openEditDialog, setOpenEditDialog] = useState<boolean>(false);
   const [openInfoDialog, setOpenInfoDialog] = useState<boolean>(false);
