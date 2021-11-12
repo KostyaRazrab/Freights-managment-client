@@ -1,0 +1,32 @@
+.adding-freight-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  input {
+    border: 1px solid #adadad;
+    width: 350px;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px 4px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 0;
+  }
+
+  button[type="submit"] {
+    background-color: #2979ff;
+    color: #fff;
+  }
+
+  .form-walid-error {
+    color: #ff1744;
+    font-size: 12px;
+  }
+}

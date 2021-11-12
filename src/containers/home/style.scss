@@ -1,0 +1,35 @@
+.App {
+  padding: 0 1rem;
+  min-width: 660px;
+  .mode {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+  
+    p {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+  }
+  
+  .freights-counter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .adding-freight-button {
+    background-color: #2979ff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+  }
+}
+
+
+

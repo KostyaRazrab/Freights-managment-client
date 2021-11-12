@@ -1,0 +1,1 @@
+export {freightService} from './freight'

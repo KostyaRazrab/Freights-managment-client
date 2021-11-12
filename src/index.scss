@@ -7,6 +7,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+table {
+  width: 100%;
+}
+
+table tbody tr:nth-child(odd){
+	background: #fff;
+}
+ 
+table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

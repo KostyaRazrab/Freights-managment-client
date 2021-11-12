@@ -1,0 +1,22 @@
+.dialog-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .dialog {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 28px;
+    max-width: 600px;
+    min-width: 300px;
+    background-color: #fff;
+  }
+}
