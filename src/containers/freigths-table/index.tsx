@@ -29,6 +29,11 @@ function FreigthsTable(props: Props) {
     props.openEditDialog();
     freightStore.setSelectedFreightToEdit(freight);
   }
+
+  function onTrySelectFreight(freight: IFreight) {
+    return adminMode.adminMode ? props.onFreightSelect(freight) : null;
+  }
+
   if (freightStore.loading) return <Loader />;
   return (
     <table className="freight-table">
@@ -46,9 +51,7 @@ function FreigthsTable(props: Props) {
         {freightStore.freights.map((freight: IFreight) => (
           <tr
             key={freight.number}
-            onClick={() =>
-              adminMode.adminMode ? props.onFreightSelect(freight) : null
-            }
+            onClick={() => onTrySelectFreight(freight)}
             style={{ cursor: adminMode.adminMode ? "pointer" : "default" }}
           >
             <td>{freight.number}</td>

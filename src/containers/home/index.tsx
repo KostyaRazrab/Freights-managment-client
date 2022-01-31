@@ -36,7 +36,11 @@ function Home() {
     setOpenEditDialog(false);
   }
 
-  function onClose() {
+  function onCloseInfoDialog(){
+    setOpenInfoDialog(false)
+  }
+
+  function onCloseDialog() {
     setOpenAddingDialog(false);
     setOpenEditDialog(false);
   }
@@ -63,12 +67,12 @@ function Home() {
       />
       <FreightDialog
         isOpen={openAddingDialog}
-        onClose={onClose}
+        onClose={onCloseDialog}
         isEditDialogOpen={openEditDialog}
       />
       <InfoFreightDialog
         isOpen={openInfoDialog}
-        onClose={() => setOpenInfoDialog(false)}
+        onClose={onCloseInfoDialog}
         freight={selectedFreight}
       />
     </div>
