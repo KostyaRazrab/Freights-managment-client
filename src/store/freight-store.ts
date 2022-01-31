@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { IFreight, IFreightEdit, ISelectedFreightToEdit } from "../models";
+import { IFreight, IFreightEdit, IFreightCreate, ISelectedFreightToEdit } from "../models";
 import { freightService } from "../provider/api-provider";
 
 class FreightStore {
@@ -39,7 +39,7 @@ class FreightStore {
       this.setLoading(false);
     }
   }
-  async createFreight(freight: IFreight) {
+  async createFreight(freight: IFreightCreate) {
     this.setLoading(true);
     try {
       await freightService.createFreight(freight);

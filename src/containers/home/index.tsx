@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Switch from "../../components/switch";
 import { adminMode } from "../../store/admin-mode-store";
 import { freightStore } from "../../store/freight-store";
-import AddingFreightDialog from "../adding-freight-dialog";
+import FreightDialog from "../freight-dialog";
 import InfoFreightDialog from "../../components/info-freight-dialog";
 import FreigthsTable from "../freigths-table";
 import "./style.scss";
@@ -20,18 +20,18 @@ function Home() {
     setOpenInfoDialog(true);
   }
 
-  function handleChangeMode() {
+  function onChangeMode() {
     adminMode.setAdminMode();
     setOpenInfoDialog(false);
     setOpenAddingDialog(false);
   }
 
-  function handleOpenEditDialog() {
+  function onOpenEditDialog() {
     setOpenAddingDialog(true);
     setOpenEditDialog(true);
   }
 
-  function handleOpenAddingDialog() {
+  function onOpenAddingDialog() {
     setOpenAddingDialog(true);
     setOpenEditDialog(false);
   }
@@ -41,17 +41,17 @@ function Home() {
     setOpenEditDialog(false);
   }
   return(
-    <div className="App">
-      <div className="mode">
+    <div className="home">
+      <div className="home__mode">
         <p>Режим администратора</p>
-        <Switch checked={adminMode.adminMode} onChange={handleChangeMode} />
+        <Switch checked={adminMode.adminMode} onChange={onChangeMode} />
       </div>
-      <div className="freights-counter-container">
+      <div className="home__freights-counter-container">
         <h3>{`Количество заявок: ${freightStore.freights.length}`}</h3>
         {adminMode.adminMode && (
           <button
-            className="adding-freight-button"
-            onClick={handleOpenAddingDialog}
+            className="home__adding-freight-button"
+            onClick={onOpenAddingDialog}
           >
             Добавить
           </button>
@@ -59,9 +59,9 @@ function Home() {
       </div>
       <FreigthsTable
         onFreightSelect={onFreightSelect}
-        openEditDialog={handleOpenEditDialog}
+        openEditDialog={onOpenEditDialog}
       />
-      <AddingFreightDialog
+      <FreightDialog
         isOpen={openAddingDialog}
         onClose={onClose}
         isEditDialogOpen={openEditDialog}

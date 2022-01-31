@@ -3,15 +3,16 @@
   border-radius: 8px;
   border-collapse: collapse;
   font-size: 14px;
-tr {
+  tr {
     height: 52px;
-
-}
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
   th {
     margin: 0;
     border-bottom: 1px solid #adadad;
     padding: 8px 0;
-
   }
   td {
     text-align: center;
@@ -19,32 +20,24 @@ tr {
     white-space: nowrap;
   }
 
-  tr:hover {
-      background-color: #f0f0f0;
-  }
-
-  .freight-remove-button {
+  &__remove-button {
     background-color: #ff1744;
     border: 0;
     border-radius: 20%;
     padding: 6px;
+    &:hover {
+      background-color: #ff4569;
+    }
   }
 
-  .freight-edit-button {
+  &__edit-button {
     background-color: #2979ff;
     border: 0;
     border-radius: 20%;
     padding: 6px;
     margin-right: 8px;
-  }
-
-  .freight-remove-button:hover {
-    background-color: #ff4569;
-
-  }
-
-  .freight-edit-button:hover {
-    background-color: #5393ff;
-
+    &:hover {
+      background-color: #5393ff;
+    }
   }
 }

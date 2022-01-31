@@ -1,9 +1,10 @@
 import React, { useEffect, FormEvent } from "react";
 import { useInput } from "../../hooks/use-input";
-import { IFreight, IFreightEdit } from "../../models/index";
+import { IFreightEdit, IFreightCreate } from "../../models/index";
 import { freightStore } from "../../store/freight-store";
 import { observer } from "mobx-react-lite";
 import SimpleDialog from "../../components/dialog";
+import { format } from "date-fns";
 import "./style.scss";
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
   isEditDialogOpen: boolean;
 };
 
-function AddingFreightDialog(props: Props) {
+function FreightDialog(props: Props) {
   const clientFirm = useInput("", {
     isEmpty: true,
     minLength: 4,
@@ -42,8 +43,9 @@ function AddingFreightDialog(props: Props) {
   const comment = useInput("", {});
 
   function handleAddFreight() {
-    const newFreight: IFreight = {
-      number: freightStore.freights.length > 0 ? freightStore.freights[freightStore.freights.length - 1].number + 1: 1,
+    const newFreight: IFreightCreate = {
+      number:
+        freightStore.freights.length > 0 ? freightStore.freights.length + 1 : 1,
       receiptDate: receiptDate.value,
       clientFirm: clientFirm.value,
       carrierFullname: carrierFullname.value,
@@ -83,11 +85,25 @@ function AddingFreightDialog(props: Props) {
   function fillInputsEditableFreight() {
     if (freightStore.selectedFreightToEdit !== null) {
       clientFirm.takeValue(freightStore.selectedFreightToEdit.clientFirm);
-      carrierFullname.takeValue(freightStore.selectedFreightToEdit.carrierFullname);
-      carrierPhoneNumber.takeValue(freightStore.selectedFreightToEdit.carrierPhoneNumber);
+      carrierFullname.takeValue(
+        freightStore.selectedFreightToEdit.carrierFullname
+      );
+      carrierPhoneNumber.takeValue(
+        freightStore.selectedFreightToEdit.carrierPhoneNumber
+      );
+      receiptDate.takeValue(
+        format(
+          new Date(freightStore.selectedFreightToEdit.receiptDate),
+          "yyyy-MM-dd"
+        ) +
+          "T" +
+          format(
+            new Date(freightStore.selectedFreightToEdit.receiptDate),
+            "hh:mm"
+          )
+      );
       atiCode.takeValue(freightStore.selectedFreightToEdit.ATICode);
       comment.takeValue(freightStore.selectedFreightToEdit.comment);
-
     }
   }
 
@@ -227,7 +243,7 @@ function AddingFreightDialog(props: Props) {
             atiCode.maxLengthError
           }
         >
-          {props.isEditDialogOpen? 'Редактировать': 'Создать'}
+          {props.isEditDialogOpen ? "Редактировать" : "Создать"}
         </button>
         <button type="button" onClick={onCloseDialog}>
           Отмена
@@ -237,4 +253,4 @@ function AddingFreightDialog(props: Props) {
   );
 }
 
-export default observer(AddingFreightDialog);
+export default observer(FreightDialog);

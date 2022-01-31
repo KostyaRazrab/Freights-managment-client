@@ -5,8 +5,7 @@ export function useValidation(value: any, validations: any) {
   const [minLengthError, setMinLengthError] = useState<boolean>(false);
   const [maxLengthError, setMaxLengthError] = useState<boolean>(false);
   const [isFullName, setFullName] = useState<boolean>(false);
-  const [isContainsOnlyLetters, setContainsOnlyLetters] =
-    useState<boolean>(false);
+  const [isContainsOnlyLetters, setContainsOnlyLetters] = useState<boolean>(false);
   const [isNumber, setNumber] = useState<boolean>(false);
 
   useEffect(() => {

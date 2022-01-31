@@ -1,34 +1,33 @@
-import  {useState} from 'react'
-import { useValidation } from './use-validation'
+import { useState, FocusEvent, ChangeEvent } from "react";
+import { useValidation } from "./use-validation";
 
-export function useInput(initialValue: any, validations: any){
-    const [value, setValue] = useState<any>(initialValue)
-    const [isDirty, setDirty] = useState<boolean>(false)
-    const valid = useValidation(value, validations)
+export function useInput(initialValue: any, validations: any) {
+  const [value, setValue] = useState<any>(initialValue);
+  const [isDirty, setDirty] = useState<boolean>(false);
 
-    function onChange(e: any){
-        setValue(e.target.value)
-    }
-    function takeValue(value: any){
-        setValue(value)
-    }
-    function onBlur(e: any){
-        setDirty(true)
-    }
+  const valid = useValidation(value, validations);
 
-    function onClear(){
-        setValue('')
-        setDirty(false)
+  function onChange(e: ChangeEvent<HTMLInputElement>) {
+    setValue(e.target.value);
+  }
+  function takeValue(value: string) {
+    setValue(value);
+  }
+  function onBlur(e: FocusEvent) {
+    setDirty(true);
+  }
 
-    }
-
-    return {
-        value,
-        isDirty,
-        onChange,
-        onBlur,
-        onClear,
-        takeValue,
-        ...valid
-    }
+  function onClear() {
+    setValue("");
+    setDirty(false);
+  }
+  return {
+    value,
+    isDirty,
+    onChange,
+    onBlur,
+    onClear,
+    takeValue,
+    ...valid,
+  };
 }

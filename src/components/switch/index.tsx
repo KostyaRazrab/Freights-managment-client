@@ -1,4 +1,4 @@
-import './style.css'
+import './style.scss'
 
 type Props = {
     checked: boolean

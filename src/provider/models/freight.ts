@@ -1,4 +1,5 @@
 export interface IFreight {
+  _id: string;
   number: number;
   receiptDate: Date;
   carrierFullname: string;
